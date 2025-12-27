@@ -1,0 +1,25 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block title %}Products{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'store/css/product-details.css' %}">
+<link rel="stylesheet" href="{% static 'store/css/fonts.css' %}">
+{% endblock %}
+
+{% block content %}
+<div id="product-detail-page">
+
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    const product_id = "{{ product_id }}";
+    const API_URL = "{% url 'store:api_product_details' product_id %}";
+</script>
+<script src="{% static 'store/js/product-details.js' %}"></script>
+{% endblock %}
+
+

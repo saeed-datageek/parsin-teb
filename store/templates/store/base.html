@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Parsin Teb{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'store/css/style.css' %}">
+
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+    <div id="mobile-overlay"></div>
+
+    <header class="main_header">
+        <div class="hamburger_menu">
+            <img src="{% static 'store/images/hamburger-lg-svgrepo-com.svg' %}" alt="menu">
+        </div>
+
+        <ul class="category">
+            <li><a href="#">main_page</a></li>
+            <li><a href="#">category</a></li>
+            <li><a href="#">tracking_order</a></li>
+        </ul>
+
+        <h2 class="test_css">This is header</h2>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <h3>This is footer</h3>
+    </footer>
+
+    <script src="{% static 'store/js/main.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,60 @@
+
+* {
+    margin:0;
+    padding:0;
+}
+ 
+body{
+    max-width: 1280px;
+    margin:0, auto;
+    font-family: YekanBakh, Arial, Helvetica, sans-serif;
+    direction: rtl ;
+}
+
+
+@font-face {
+    font-family: 'YekanBakh';
+    src: url('../fonts/YekanBakh-Regular.woff') format('truetype') ;
+}
+@font-face {
+    font-family: 'Vazirmatn';
+    src: url('../fonts/Vazirmatn[wght].woff2') format('truetype') ;
+}
+
+
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding:50px;
+    border: 2px solid rgb(134, 242, 145);
+    border-radius: 20px;
+    margin:10px;
+    gap:2rem;
+}
+.product{
+    border: 1px solid #eff2dc ;
+    border-radius: 10px;
+    width:50%;
+    padding:20px;
+    cursor: pointer;
+}
+
+.product:hover{
+    border: 2px solid rgb(179, 176, 238) ;
+}
+.image{
+    width: 100%;
+    border: 1px solid seashell;
+    
+}
+
+.product-title{
+    font-family: 'YekanBakh';
+}
+
+
+.product-price{
+  font-family: 'Vazirmatn';
+  
+}   

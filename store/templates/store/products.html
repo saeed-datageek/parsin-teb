@@ -1,0 +1,22 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block title %}Products{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'store/css/products.css' %}">
+<link rel="stylesheet" href="{% static 'store/css/fonts.css' %}">
+{% endblock %}
+
+{% block content %}
+<div id="products-list" class="products"></div>
+{% endblock %}
+
+{% block extra_js %}
+<script> 
+    const DETAIL_URL_TEMPLATE = "{% url 'store:product_details' 0  %}".replace('0', 'PRODUCT_ID')
+</script>
+<script src="{% static 'store/js/products.js' %}"></script>
+{% endblock %}
+
+

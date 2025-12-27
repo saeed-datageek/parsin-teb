@@ -1,0 +1,103 @@
+/* --- Global Styles (Unchanged) --- */
+.test_css {
+    color: rgb(179, 176, 238);
+}
+
+.main_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    /* Added position:relative to contextually place the overlay */
+    position: relative; 
+    z-index: 20; /* Keep the header visible above the overlay */
+    background-color: #fff; /* Ensure header background is solid */
+}
+
+.hamburger_menu {
+    display: none;
+}
+
+/* --- Desktop Menu (Unchanged) --- */
+.main_header .category {
+    display: flex;
+    padding: 0 10px;
+    list-style: none;
+}
+.category li {
+    display: inline-block;
+    padding: 10px 10px;
+}
+.category a {
+    text-decoration: none;
+    color: #343434;
+}
+.category a:hover {
+    color: #7c3aed;
+}
+
+.main_header img {
+    width: 35px;
+    height: 35px;
+}
+
+/* ------------------------------------------------ */
+/* 📱 MOBILE STYLES (max-width: 780px) 📱 */
+/* ------------------------------------------------ */
+
+/* The main change for the overlay effect is here */
+
+/* 1. The Mobile Menu Itself */
+@media(max-width: 780px) {
+    .hamburger_menu {
+        display: block; /* Show the hamburger icon */
+    }
+
+    .main_header .category {
+        /* 👇 Positioning and Hiding for Mobile Overlay */
+        display: flex; /* We set display: flex here */
+        flex-direction: column;
+        background: #fff;
+        position: fixed; /* Use fixed to cover the entire viewport */
+        top: 0;
+        left: 0;
+        width: 80%; /* Menu width on mobile */
+        height: 100%; /* Take full height */
+        padding: 60px 20px 20px; /* Space for a logo/close button */
+        border-right: 1px solid #ccc;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        z-index: 50; /* Ensure it's on top of everything */
+
+        /* 👇 HIDE IT BY DEFAULT AND USE TRANSITION */
+        transform: translateX(-100%); /* Slide it off-screen to the left */
+        transition: transform 0.3s ease-in-out;
+    }
+
+    /* 2. Rule to show the menu when the 'open' class is on its parent (the category element) */
+    .main_header .category.open {
+        transform: translateX(0); /* Slide it into view */
+    }
+}
+
+/* 3. The Overlay Background (The faded effect) */
+
+/* The overlay element will be outside the header, right after the body tag opens. */
+#mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+     /* Below the menu (100) but above everything else */
+    z-index: 90; 
+    display: none; /* Hidden by default */
+}
+
+/* 4. Show Overlay when Menu is Open */
+.menu-open #mobile-overlay {
+    display: block;
+}
+
+/* 5. Optional: Fading out content by applying the class to the body */
+/* You can target other elements to fade them out if needed, but the overlay often achieves this visually */
